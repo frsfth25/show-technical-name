@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- form view inherit -->
+        <record id="module_form_inherit_show_technical_name" model="ir.ui.view">
+            <field name="name">ir.module.module.view.form.inherit</field>
+            <field name="model">ir.module.module</field>
+            <field name="inherit_id" ref="base.module_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//h3[hasclass('oe_fade')]" position="before">
+                    <h5 class="o_kanban_record_title" groups="!base.group_no_one">
+                        <code><field name="name"/></code>
+                    </h5>    
+                </xpath>
+            </field>
+        </record>
+
+        <!-- tree/list view inherit -->
+        <record id="module_tree_inherit_show_technical_name" model="ir.ui.view">
+            <field name="name">ir.module.module.view.tree.inherit</field>
+            <field name="model">ir.module.module</field>
+            <field name="inherit_id" ref="base.module_tree"/>
+            <field name="arch" type="xml">
+                <field name="name" position="replace">
+                    <field name="name"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- kanban view inherit -->
+        <record id="module_view_kanban_inherit_show_technical_name" model="ir.ui.view">
+            <field name="name">ir.module.module.view.kanban.inherit</field>
+            <field name="model">ir.module.module</field>
+            <field name="inherit_id" ref="base.module_view_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//p[hasclass('oe_module_name')]" position="replace">
+                    <p class="oe_module_name">
+                        <code><field name="name"/></code>
+                        <field name="summary"/>
+                    </p>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
